@@ -2,15 +2,12 @@
 
 ## 可用的脚本
 
-In the project directory, you can run:
+在项目目录下运行:
 
 ### `npm start`
 
 本地开发<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+浏览器地址 [http://localhost:3000](http://localhost:3000)。
 
 ### `npm test`
 
@@ -40,9 +37,10 @@ className={styles.logo}
 
 ## JavaScript 风格指南
 
-eslint校验规则 .eslintrc.js
-请在自己的 IDE 上配置eslint插件，并按规范书写代码。生产环境 build 不允许出现警告。
-采用 Airbnb JavaScript 风格指南
+eslint校验规则 .eslintrc.js<br>
+请在自己的 IDE 上配置eslint插件，并配置tab 为两个空格，并按规范书写代码。<br>
+生产环境 build 不允许出现警告。<br>
+采用 Airbnb JavaScript 风格指南<br>
 详细规则 [Airbnb JavaScript 风格指南](https://github.com/lin-123/javascript)
 
 ## 建议使用 yarn

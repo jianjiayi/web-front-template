@@ -47,6 +47,24 @@ const routes = [
     ],
   },
   {
+    path: '/form',
+    name: 'form',
+    icon: 'form',
+    component: Root,
+    routes: [
+      {
+        path: '/form/basic-form',
+        name: 'basic-form',
+        component: () => <div>basic-form</div>,
+      },
+      {
+        path: '/form/step-form',
+        name: 'step-form',
+        component: () => (<div>step-form</div>),
+      },
+    ],
+  },
+  {
     path: '/setting',
     name: 'setting',
     icon: 'setting',
