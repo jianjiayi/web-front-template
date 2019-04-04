@@ -1,9 +1,9 @@
 /* eslint-disable compat/compat */
 import axios from 'axios';
 import NProgress from 'nprogress';
-import { notification, message } from 'antd';
+import { notification } from 'antd';
 // import { routerRedux } from 'dva/router';
-import { dispatch } from '../store';
+// import { dispatch } from '../store';
 
 /**
  * 功能：

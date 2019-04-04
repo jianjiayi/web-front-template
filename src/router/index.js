@@ -24,13 +24,7 @@ class Root extends React.Component {
           <Switch>
             <Route
               path="/user"
-              render={() => (
-                isLogin ? (
-                  <Redirect to="/" />
-                ) : (
-                  <Route component={UserLayout} />
-                )
-              )}
+              component={UserLayout}
             />
             <Route
               path="/"

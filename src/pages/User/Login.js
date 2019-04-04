@@ -43,7 +43,11 @@ class LoginPage extends Component {
     if (!err) {
       console.log(values);
       // login
-      dispatch.user.login(values);
+      dispatch.user.login({
+        ...values,
+        validateCode: '2134',
+        rememberMe: 'no',
+      });
     }
   };
 
@@ -141,7 +145,7 @@ class LoginPage extends Component {
             <Checkbox checked={autoLogin} onChange={this.changeAutoLogin}>
               自动登录
             </Checkbox>
-            <a style={{ float: 'right' }} href="">
+            <a style={{ float: 'right' }} href="/forget">
               忘记密码
             </a>
           </div>

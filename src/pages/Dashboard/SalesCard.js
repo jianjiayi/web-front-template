@@ -28,16 +28,16 @@ const SalesCard = memo(
           tabBarExtraContent={
             <div className={styles.salesExtraWrap}>
               <div className={styles.salesExtra}>
-                <a className={isActive('today')} onClick={() => selectDate('today')}>
+                <a className={isActive('today')} href="#nokey" onClick={() => selectDate('today')}>
                   All Day
                 </a>
-                <a className={isActive('week')} onClick={() => selectDate('week')}>
+                <a className={isActive('week')} href="#nokey" onClick={() => selectDate('week')}>
                   All Week
                 </a>
-                <a className={isActive('month')} onClick={() => selectDate('month')}>
+                <a className={isActive('month')} href="#nokey" onClick={() => selectDate('month')}>
                   All Month
                 </a>
-                <a className={isActive('year')} onClick={() => selectDate('year')}>
+                <a className={isActive('year')} href="#nokey" onClick={() => selectDate('year')}>
                   All Year
                 </a>
               </div>
