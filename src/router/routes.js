@@ -7,7 +7,7 @@ import PageLoading from '../components/PageLoading';
 const Login = React.lazy(() => import('../pages/User/Login'));
 const Analysis = React.lazy(() => import('../pages/Dashboard/Analysis'));
 const BasicForm = React.lazy(() => import('../pages/Forms/BasicForm'));
-const lazy = CusComponent => (<Suspense fallback={<PageLoading />}><CusComponent /></Suspense>);
+const lazy = CusComponent => (<Suspense fallback={<PageLoading />}>{CusComponent}</Suspense>);
 
 const RdeTo = () => (
   <Redirect to="/dashboard/analysis" />
@@ -38,7 +38,7 @@ const routes = [
       {
         path: '/dashboard/analysis',
         name: 'analysis',
-        component: () => lazy(Analysis),
+        component: props => lazy(<Analysis {...props} />),
       },
       {
         path: '/dashboard/monitor',
@@ -56,7 +56,7 @@ const routes = [
       {
         path: '/form/basic-form',
         name: 'basic-form',
-        component: () => lazy(BasicForm),
+        component: props => lazy(<BasicForm {...props} />),
       },
       {
         path: '/form/step-form',
@@ -102,7 +102,7 @@ export const userRoutes = [
       {
         path: '/user/login',
         name: 'login',
-        component: () => lazy(Login),
+        component: props => lazy(<Login {...props} />),
       },
       {
         path: '/user/register',
