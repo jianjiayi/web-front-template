@@ -113,9 +113,8 @@ export default {
   effects: dispatch => ({
     // handle state changes with impure functions.
     // 使用async / await进行异步操作
-    async getMenuData(payload, rootState) {
+    async getMenuData(payload) {
       // eslint-disable-next-line no-console
-      console.log(rootState);
       // eslint-disable-next-line compat/compat
       await new Promise(resolve => setTimeout(resolve, 1000));
       dispatch.menu.setMenuData(payload);

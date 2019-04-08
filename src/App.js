@@ -1,6 +1,6 @@
 import React from 'react';
 import { DatePicker } from 'antd';
-import logo from './logo.svg';
+import logo from './assets/logo.svg';
 
 const { MonthPicker, RangePicker, WeekPicker } = DatePicker;
 function onChange(date, dateString) {

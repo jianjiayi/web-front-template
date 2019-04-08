@@ -36,7 +36,6 @@ export default {
     },
     async getUsers() {
       const res = await getUsers();
-      console.log(res, 'getUsers');
       // dispatch.user.setIsLogin(payload);
     },
     async logout(payload = false) {
