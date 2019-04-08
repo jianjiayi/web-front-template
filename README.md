@@ -38,7 +38,7 @@ className={styles.logo}
 ```
 公共引入 此模式可能会与其他 css 冲突，慎用！！！
 ```bash
-import from './index.module.less';
+import from './index.less';
 className="logo"
 ```
 
