@@ -31,9 +31,16 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ### less 使用
 
-命名需加入 .module<br>
-import styles from './index.module.less';<br>
+scope（私有）引入，命名需加入 .module<br>
+```bash
+import styles from './index.module.less';
 className={styles.logo}
+```
+公共引入 此模式可能会与其他 css 冲突，慎用！！！
+```bash
+import from './index.module.less';
+className="logo"
+```
 
 ## JavaScript 风格指南
 
