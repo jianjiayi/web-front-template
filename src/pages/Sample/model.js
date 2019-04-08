@@ -11,7 +11,6 @@ export default {
     // use async/await for async actions
     async incrementAsync(payload, rootState) {
       // eslint-disable-next-line no-console
-      console.log(rootState);
       // eslint-disable-next-line compat/compat
       await new Promise(resolve => setTimeout(resolve, 1000));
       dispatch.count.increment(payload);

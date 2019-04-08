@@ -95,12 +95,10 @@ class BasicLayout extends Component {
             className={styles.content}
             style={contentStyle}
           >
-            {/* <Switch location={location}> */}
-            {/** react-router 静态 routes 配置使用方法 */}
-            {renderRoutes(routes.slice(1), {
-              ...this.props,
-            })}
-            {/* </Switch> */}
+            <Switch location={location}>
+              {/** react-router 静态 routes 配置使用方法 */}
+              {renderRoutes(routes.slice(1))}
+            </Switch>
           </Content>
           <Footer />
         </Layout>

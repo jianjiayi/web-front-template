@@ -7,6 +7,7 @@ import PageLoading from '../components/PageLoading';
 const Login = React.lazy(() => import('../pages/User/Login'));
 const Analysis = React.lazy(() => import('../pages/Dashboard/Analysis'));
 const BasicForm = React.lazy(() => import('../pages/Forms/BasicForm'));
+const TableList = React.lazy(() => import('../pages/List/TableList'));
 const lazy = CusComponent => (<Suspense fallback={<PageLoading />}>{CusComponent}</Suspense>);
 
 const RdeTo = () => (
@@ -60,6 +61,25 @@ const routes = [
       },
       {
         path: '/form/step-form',
+        name: 'step-form',
+        component: () => (<div>step-form</div>),
+      },
+    ],
+  },
+  {
+    path: '/list',
+    name: 'list',
+    icon: 'table',
+    redirect: '/list/table-list',
+    component: Root,
+    routes: [
+      {
+        path: '/list/table-list',
+        name: 'table-list',
+        component: props => lazy(<TableList {...props} />),
+      },
+      {
+        path: '/list/step-form',
         name: 'step-form',
         component: () => (<div>step-form</div>),
       },

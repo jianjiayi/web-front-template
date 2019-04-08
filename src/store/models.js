@@ -8,11 +8,12 @@
  * export { default as count } from './count';
  */
 // eslint-disable-next-line import/prefer-default-export
-export { default as count } from '../pages/Sample/model';
-export { default as chart } from '../pages/Dashboard/models/chart';
 export { default as menu } from './menu';
 export { default as global } from './global';
 export { default as setting } from './setting';
+export { default as count } from '../pages/Sample/model';
+export { default as chart } from '../pages/Dashboard/models/chart';
+export { default as rule } from '../pages/List/models/rule';
 
 export { default as user } from './user';
 
