@@ -6,6 +6,7 @@ import PageLoading from '../components/PageLoading';
 
 const Login = React.lazy(() => import('../pages/User/Login'));
 const Analysis = React.lazy(() => import('../pages/Dashboard/Analysis'));
+const BasicForm = React.lazy(() => import('../pages/Forms/BasicForm'));
 const lazy = CusComponent => (<Suspense fallback={<PageLoading />}><CusComponent /></Suspense>);
 
 const RdeTo = () => (
@@ -55,7 +56,7 @@ const routes = [
       {
         path: '/form/basic-form',
         name: 'basic-form',
-        component: () => <div>basic-form</div>,
+        component: () => lazy(BasicForm),
       },
       {
         path: '/form/step-form',
