@@ -3,8 +3,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
 import { Checkbox, Alert, Icon } from 'antd';
+import { Debounce } from 'lodash-decorators';
 
-import { dispatch } from '../../store';
+// import { dispatch } from '../../store';
 import Login from '../../components/Login';
 import styles from './Login.module.less';
 
@@ -38,12 +39,33 @@ class LoginPage extends Component {
     });
   });
 
-  handleSubmit = (err, values) => {
+  /* eslint-disable*/
+  
+  login(values) {
+    const { login } = this.props;
+    login({
+      ...values,
+      validateCode: '2134',
+      rememberMe: 'no',
+    });
+  }
+
+  /**
+   * Debounce 防抖
+   * 防止多次点击频繁触发
+   * @ decorators 装饰器
+   * 只适用与类和类的属性
+   * 不适用于箭头函数
+   * 使用方法：this.handleSubmit.bind(this)
+   * @param {*} err
+   * @param {*} values
+   * @memberof LoginPage
+   */
+  @Debounce(200)
+  handleSubmit(err, values) {
     // const { type } = this.state;
     if (!err) {
-      console.log(values);
-      // login
-      dispatch.user.login(values);
+      this.login(values)
     }
   };
 
@@ -66,7 +88,7 @@ class LoginPage extends Component {
         <Login
           defaultActiveKey={type}
           onTabChange={this.onTabChange}
-          onSubmit={this.handleSubmit}
+          onSubmit={this.handleSubmit.bind(this)}
           ref={(form) => {
             this.loginForm = form;
           }}
@@ -97,7 +119,7 @@ class LoginPage extends Component {
               ]}
               onPressEnter={(e) => {
                 e.preventDefault();
-                this.loginForm.validateFields(this.handleSubmit);
+                this.loginForm.validateFields(this.handleSubmit.bind(this));
               }}
             />
           </Tab>
@@ -141,7 +163,7 @@ class LoginPage extends Component {
             <Checkbox checked={autoLogin} onChange={this.changeAutoLogin}>
               自动登录
             </Checkbox>
-            <a style={{ float: 'right' }} href="">
+            <a style={{ float: 'right' }} href="/forget">
               忘记密码
             </a>
           </div>
@@ -163,8 +185,9 @@ class LoginPage extends Component {
   }
 }
 
-export default withRouter(connect(({ user }) => ({
+export default withRouter(connect(({ user, loading }) => ({
   isLogin: user.isLogin,
+  submitting: loading.effects.user.login
 }), ({ user: { login } }) => ({
   login,
 }))(LoginPage));

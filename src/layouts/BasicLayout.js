@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import getPageTitle from '../util/getPageTitle';
 import Header from './Header';
 import Footer from './Footer';
+import Context from './MenuContext';
 import SiderMenu from '../components/SiderMenu';
 import routes from '../router/routes';
 import styles from './BasicLayout.module.less';
@@ -28,6 +29,15 @@ class BasicLayout extends Component {
     }
     return null;
   };
+
+  getContext() {
+    const { location, breadcrumbNameMap, menuData } = this.props;
+    return {
+      menuData,
+      location,
+      breadcrumbNameMap,
+    };
+  }
 
   /**
    * rematch 的两种使用方式
@@ -57,7 +67,6 @@ class BasicLayout extends Component {
       breadcrumbNameMap,
       fixedHeader,
     } = this.props;
-    console.log(this.props, 'basic');
     const isTop = PropsLayout === 'topmenu';
     const contentStyle = !fixedHeader ? { paddingTop: 0 } : {};
     const layout = (
@@ -86,10 +95,12 @@ class BasicLayout extends Component {
             className={styles.content}
             style={contentStyle}
           >
-            <Switch location={location}>
-              {/** react-router 静态 routes 配置使用方法 */}
-              {renderRoutes(routes.slice(1))}
-            </Switch>
+            {/* <Switch location={location}> */}
+            {/** react-router 静态 routes 配置使用方法 */}
+            {renderRoutes(routes.slice(1), {
+              ...this.props,
+            })}
+            {/* </Switch> */}
           </Content>
           <Footer />
         </Layout>
@@ -98,7 +109,9 @@ class BasicLayout extends Component {
     return (
       <>
         <DocumentTitle title={getPageTitle(location.pathname, breadcrumbNameMap)}>
-          {layout}
+          <Context.Provider value={this.getContext()}>
+            {layout}
+          </Context.Provider>
         </DocumentTitle>
       </>
     );

@@ -36,7 +36,7 @@ class Analysis extends Component {
   }
 
   componentWillUnmount() {
-    const { dispatch } = this.props;
+    // const { dispatch } = this.props;
     // dispatch({
     //   type: 'chart/clear',
     // });
@@ -56,7 +56,7 @@ class Analysis extends Component {
   };
 
   handleRangePickerChange = (rangePickerValue) => {
-    const { dispatch } = this.props;
+    // const { dispatch } = this.props;
     this.setState({
       rangePickerValue,
     });
@@ -67,7 +67,7 @@ class Analysis extends Component {
   };
 
   selectDate = (type) => {
-    const { dispatch } = this.props;
+    // const { dispatch } = this.props;
     this.setState({
       rangePickerValue: getTimeDistance(type),
     });

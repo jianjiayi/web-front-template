@@ -24,10 +24,10 @@ const updated = updatedPlugin();
 /**
  * 添加自动 loading 指示器 effects 到 Rematch
  * eq:
- * const mapState = (state) => ({
-    loading: state.loading.effects.login.submit, // true when the `login/submit` effect is running
+ * const mapState = ({ loading }) => ({
+    loading: loading.effects.user.login, // true when the `login/submit` effect is running
     // or
-    loading: state.loading.models.login, // true when ANY effect on the `login` model is running
+    loading: loading.models.user, // true when ANY effect on the `login` model is running
   })
  */
 const loading = createLoadingPlugin({});

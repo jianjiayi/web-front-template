@@ -62,7 +62,7 @@ export default {
         return "index"
     }
    */
-  history: 'hash',
+  history: 'browser',
   localPath: `//${host}/`, // 兼容 https
   contentPath: 'api/v2/',
 };

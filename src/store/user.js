@@ -1,6 +1,8 @@
 /* eslint-disable compat/compat */
 /* eslint-disable no-param-reassign */
 import { getUsers, login } from '../services/api';
+import { getPageQuery } from '../util/utils';
+import history from '../router/history';
 
 export default {
   state: {
@@ -14,13 +16,23 @@ export default {
   },
   effects: dispatch => ({
     async login(payload) {
-      const res = await login({
-        ...payload,
-        validateCode: '2134',
-        rememberMe: 'no',
-      });
-      console.log(res, 'login');
+      const res = await login(payload);
+      const urlParams = new URL(window.location.href);
+      const params = getPageQuery();
+      let { redirect } = params;
+      if (redirect) {
+        const redirectUrlParams = new URL(redirect);
+        if (redirectUrlParams.origin === urlParams.origin) {
+          redirect = redirect.substr(urlParams.origin.length);
+          if (redirect.match(/^\/.*#/)) {
+            redirect = redirect.substr(redirect.indexOf('#') + 1);
+          }
+        } else {
+          redirect = null;
+        }
+      }
       dispatch.user.setIsLogin(true);
+      history.replace(redirect || '/');
     },
     async getUsers() {
       const res = await getUsers();
