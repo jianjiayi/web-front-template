@@ -11,6 +11,7 @@ const TableList = React.lazy(() => import('../pages/List/TableList'));
 const AdvancedProfile = React.lazy(() => import('../pages/Profile/AdvancedProfile'));
 const Success = React.lazy(() => import('../pages/Result/Success'));
 const Error = React.lazy(() => import('../pages/Result/Error'));
+const BraftEditor = React.lazy(() => import('../pages/Editor'));
 const lazy = CusComponent => (<Suspense fallback={<PageLoading />}>{CusComponent}</Suspense>);
 
 const RdeTo = () => (
@@ -123,6 +124,25 @@ const routes = [
         path: '/result/fail',
         name: 'fail',
         component: props => lazy(<Error {...props} />),
+      },
+    ],
+  },
+  {
+    path: '/editor',
+    name: 'editor',
+    icon: 'highlight',
+    redirect: '/editor/BraftEditor',
+    component: Root,
+    routes: [
+      {
+        path: '/editor/BraftEditor',
+        name: 'BraftEditor',
+        component: props => lazy(<BraftEditor {...props} />),
+      },
+      {
+        path: '/editor/ueEditor',
+        name: 'fail',
+        component: () => <div>ueEditor</div>,
       },
     ],
   },

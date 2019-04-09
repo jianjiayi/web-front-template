@@ -21,7 +21,7 @@ const { RangePicker } = DatePicker;
 const { TextArea } = Input;
 
 @connect(({ loading }) => ({
-  submitting: loading.effects['form/submitRegularForm'],
+  submitting: loading.effects.form.submitRegularForm,
 }))
 @Form.create()
 class BasicForms extends PureComponent {

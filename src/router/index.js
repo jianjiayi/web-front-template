@@ -17,7 +17,8 @@ class Root extends React.Component {
   }
 
   render() {
-    const { isLogin } = this.props;
+    // const { isLogin } = this.props;
+    const isLogin = true;
     return (
       <Router history={history}>
         <ScrollToTop>

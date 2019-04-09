@@ -1,6 +1,9 @@
 export const { host } = window.location;
 export const path = host.substr(host.indexOf('.'));
 export const domian = window.location.hostname.substr(host.indexOf('.'));
+
+
+export const uploadFilesPath = '/api/upload/files';
 export default {
   /**
    * history 默认是 browser
@@ -64,5 +67,5 @@ export default {
    */
   history: 'browser',
   localPath: `//${host}/`, // 兼容 https
-  contentPath: 'api/v2/',
+  contentPath: '/api/v2/',
 };
