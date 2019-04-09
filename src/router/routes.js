@@ -8,6 +8,7 @@ const Login = React.lazy(() => import('../pages/User/Login'));
 const Analysis = React.lazy(() => import('../pages/Dashboard/Analysis'));
 const BasicForm = React.lazy(() => import('../pages/Forms/BasicForm'));
 const TableList = React.lazy(() => import('../pages/List/TableList'));
+const AdvancedProfile = React.lazy(() => import('../pages/Profile/AdvancedProfile'));
 const lazy = CusComponent => (<Suspense fallback={<PageLoading />}>{CusComponent}</Suspense>);
 
 const RdeTo = () => (
@@ -80,6 +81,25 @@ const routes = [
       },
       {
         path: '/list/step-form',
+        name: 'step-form',
+        component: () => (<div>step-form</div>),
+      },
+    ],
+  },
+  {
+    path: '/profile',
+    name: 'profile',
+    icon: 'profile',
+    redirect: '/profile/table-list',
+    component: Root,
+    routes: [
+      {
+        path: '/profile/advanced',
+        name: 'advanced',
+        component: props => lazy(<AdvancedProfile {...props} />),
+      },
+      {
+        path: '/profile/step-form',
         name: 'step-form',
         component: () => (<div>step-form</div>),
       },
