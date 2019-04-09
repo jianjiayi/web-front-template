@@ -294,7 +294,7 @@ class TableList extends PureComponent {
     {
       title: '规则名称',
       dataIndex: 'name',
-      render: text => <a onClick={() => this.previewItem(text)}>{text}</a>,
+      render: text => <a href="#nokey" onClick={() => this.previewItem(text)}>{text}</a>,
     },
     {
       title: '描述',
@@ -343,23 +343,23 @@ class TableList extends PureComponent {
       title: '操作',
       render: (text, record) => (
         <Fragment>
-          <a onClick={() => this.handleUpdateModalVisible(true, record)}>配置</a>
+          <a href="#nokey" onClick={() => this.handleUpdateModalVisible(true, record)}>配置</a>
           <Divider type="vertical" />
-          <a href="">订阅警报</a>
+          <a href="#nokey">订阅警报</a>
         </Fragment>
       ),
     },
   ];
 
   componentDidMount() {
-    const { dispatch } = this.props;
+    // const { dispatch } = this.props;
     // dispatch({
     //   type: 'rule/fetch',
     // });
   }
 
   handleStandardTableChange = (pagination, filtersArg, sorter) => {
-    const { dispatch } = this.props;
+    // const { dispatch } = this.props;
     const { formValues } = this.state;
 
     const filters = Object.keys(filtersArg).reduce((obj, key) => {
@@ -389,7 +389,7 @@ class TableList extends PureComponent {
   };
 
   handleFormReset = () => {
-    const { form, dispatch } = this.props;
+    const { form } = this.props;
     form.resetFields();
     this.setState({
       formValues: {},
@@ -408,7 +408,7 @@ class TableList extends PureComponent {
   };
 
   handleMenuClick = (e) => {
-    const { dispatch } = this.props;
+    // const { dispatch } = this.props;
     const { selectedRows } = this.state;
 
     if (selectedRows.length === 0) return;
@@ -440,10 +440,9 @@ class TableList extends PureComponent {
   handleSearch = (e) => {
     e.preventDefault();
 
-    const { dispatch, form } = this.props;
+    const { form } = this.props;
 
     form.validateFields((err, fieldsValue) => {
-      console.log(err, fieldsValue, 'handleSearch');
       if (err) return;
 
       const values = {
@@ -476,7 +475,7 @@ class TableList extends PureComponent {
   };
 
   handleAdd = (fields) => {
-    const { dispatch } = this.props;
+    // const { dispatch } = this.props;
     // dispatch({
     //   type: 'rule/add',
     //   payload: {
@@ -489,8 +488,8 @@ class TableList extends PureComponent {
   };
 
   handleUpdate = (fields) => {
-    const { dispatch } = this.props;
-    const { formValues } = this.state;
+    // const { dispatch } = this.props;
+    // const { formValues } = this.state;
     // dispatch({
     //   type: 'rule/update',
     //   payload: {
@@ -537,7 +536,7 @@ class TableList extends PureComponent {
               <Button style={{ marginLeft: 8 }} onClick={this.handleFormReset}>
                 重置
               </Button>
-              <a style={{ marginLeft: 8 }} onClick={this.toggleForm}>
+              <a href="#nokey" style={{ marginLeft: 8 }} onClick={this.toggleForm}>
                 展开 <Icon type="down" />
               </a>
             </span>
@@ -612,7 +611,7 @@ class TableList extends PureComponent {
             <Button style={{ marginLeft: 8 }} onClick={this.handleFormReset}>
               重置
             </Button>
-            <a style={{ marginLeft: 8 }} onClick={this.toggleForm}>
+            <a href="#nokey" style={{ marginLeft: 8 }} onClick={this.toggleForm}>
               收起 <Icon type="up" />
             </a>
           </div>

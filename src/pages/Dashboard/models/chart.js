@@ -36,6 +36,7 @@ export default {
   effects: dispatch => ({
     async fetch(payload) {
       const res = await fakeChartData();
+      console.log(res, 'res');
       dispatch.chart.save(payload);
     },
   }),
