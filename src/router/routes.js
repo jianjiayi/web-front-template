@@ -8,6 +8,9 @@ const Login = React.lazy(() => import('../pages/User/Login'));
 const Analysis = React.lazy(() => import('../pages/Dashboard/Analysis'));
 const BasicForm = React.lazy(() => import('../pages/Forms/BasicForm'));
 const TableList = React.lazy(() => import('../pages/List/TableList'));
+const AdvancedProfile = React.lazy(() => import('../pages/Profile/AdvancedProfile'));
+const Success = React.lazy(() => import('../pages/Result/Success'));
+const Error = React.lazy(() => import('../pages/Result/Error'));
 const lazy = CusComponent => (<Suspense fallback={<PageLoading />}>{CusComponent}</Suspense>);
 
 const RdeTo = () => (
@@ -82,6 +85,44 @@ const routes = [
         path: '/list/step-form',
         name: 'step-form',
         component: () => (<div>step-form</div>),
+      },
+    ],
+  },
+  {
+    path: '/profile',
+    name: 'profile',
+    icon: 'profile',
+    redirect: '/profile/table-list',
+    component: Root,
+    routes: [
+      {
+        path: '/profile/advanced',
+        name: 'advanced',
+        component: props => lazy(<AdvancedProfile {...props} />),
+      },
+      {
+        path: '/profile/step-form',
+        name: 'step-form',
+        component: () => (<div>step-form</div>),
+      },
+    ],
+  },
+  {
+    path: '/result',
+    name: 'result',
+    icon: 'check-circle',
+    redirect: '/result/success',
+    component: Root,
+    routes: [
+      {
+        path: '/result/success',
+        name: 'success',
+        component: props => lazy(<Success {...props} />),
+      },
+      {
+        path: '/result/fail',
+        name: 'fail',
+        component: props => lazy(<Error {...props} />),
       },
     ],
   },

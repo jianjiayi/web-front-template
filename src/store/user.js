@@ -17,6 +17,7 @@ export default {
   effects: dispatch => ({
     async login(payload) {
       const res = await login(payload);
+      console.log(res, 'res');
       const urlParams = new URL(window.location.href);
       const params = getPageQuery();
       let { redirect } = params;
@@ -36,6 +37,7 @@ export default {
     },
     async getUsers() {
       const res = await getUsers();
+      console.log(res, 'res');
       // dispatch.user.setIsLogin(payload);
     },
     async logout(payload = false) {
