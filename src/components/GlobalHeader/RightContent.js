@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-closing-tag-location */
 import React, { PureComponent } from 'react';
 import {
   Spin, Menu, Icon, Avatar,
@@ -55,8 +54,8 @@ export default class GlobalHeaderRight extends PureComponent {
             console.log('enter', value); // eslint-disable-line
           }}
         />
-        {currentUser
-          ? <HeaderDropdown overlay={menu}>
+        {currentUser ? (
+          <HeaderDropdown overlay={menu}>
             <span className={`${styles.action} ${styles.account}`}>
               <Avatar
                 size="small"
@@ -65,8 +64,10 @@ export default class GlobalHeaderRight extends PureComponent {
               />
               <span className={styles.name}>{currentUser.name}</span>
             </span>
-          </HeaderDropdown> : <Spin size="small" style={{ marginLeft: 8, marginRight: 8 }} />
-        }
+          </HeaderDropdown>
+        ) : (
+          <Spin size="small" style={{ marginLeft: 8, marginRight: 8 }} />
+        )}
       </div>
     );
   }
