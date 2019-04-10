@@ -10,7 +10,7 @@ import Login from '../../components/Login';
 import styles from './Login.module.less';
 
 const {
-  Tab, UserName, Password, Mobile, Captcha, Submit,
+  Tab, UserName, Password, Mobile, Captcha, ImageCaptcha, Submit,
 } = Login;
 
 class LoginPage extends Component {
@@ -45,7 +45,7 @@ class LoginPage extends Component {
     const { login } = this.props;
     login({
       ...values,
-      validateCode: '2134',
+      // validateCode: '2134',
       rememberMe: 'no',
     });
   }
@@ -121,6 +121,7 @@ class LoginPage extends Component {
                 this.loginForm.validateFields(this.handleSubmit.bind(this));
               }}
             />
+            <ImageCaptcha name="validateCode"/>
           </Tab>
           <Tab key="mobile" tab="手机号">
             {login && login.status === 'error'

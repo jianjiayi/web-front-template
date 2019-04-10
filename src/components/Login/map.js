@@ -62,4 +62,17 @@ export default {
       },
     ],
   },
+  ImageCaptcha: {
+    props: {
+      size: 'large',
+      prefix: <Icon type="mail" className={styles.prefixIcon} />,
+      placeholder: '图片验证码',
+    },
+    rules: [
+      {
+        required: true,
+        message: '请输入图片验证码!',
+      },
+    ],
+  },
 };

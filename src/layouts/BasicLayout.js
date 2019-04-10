@@ -116,13 +116,14 @@ class BasicLayout extends Component {
   }
 }
 const mapStateToProps = ({
-  menu, global, setting, loading,
+  menu, global, setting, loading, user,
 }) => ({
   breadcrumbNameMap: menu.breadcrumbNameMap,
   layout: setting.layout,
   menuData: menu.menuData,
   collapsed: global.collapsed,
   ...setting,
+  ...user,
   loading,
 });
 const mapDispatchToProps = ({ global: { changeLayoutCollapsed } }) => ({

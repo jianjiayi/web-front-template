@@ -14,4 +14,10 @@ module.exports = function (app) {
       changeOrigin: true,
     }),
   );
+  app.use(
+    proxy('/captcha/**', {
+      target: 'http://testsxappcms.peopletech.cn',
+      changeOrigin: true,
+    }),
+  );
 };

@@ -45,7 +45,7 @@ class HeaderView extends Component {
   }
 
   handleMenuClick = ({ key }) => {
-    // const { dispatch } = this.props;
+    const { logout } = this.props;
     // if (key === 'userCenter') {
     //   router.push('/account/center');
     //   return;
@@ -58,11 +58,9 @@ class HeaderView extends Component {
     //   router.push('/account/settings/base');
     //   return;
     // }
-    // if (key === 'logout') {
-    //   dispatch({
-    //     type: 'login/logout',
-    //   });
-    // }
+    if (key === 'logout') {
+      logout();
+    }
   };
 
   handScroll = () => {
@@ -147,4 +145,7 @@ const mapStateToProps = ({ menu, global, setting }) => ({
   collapsed: global.collapsed,
   setting,
 });
-export default connect(mapStateToProps)(HeaderView);
+const mapDispatchToProps = ({ user: { logout } }) => ({
+  logout,
+});
+export default connect(mapStateToProps, mapDispatchToProps)(HeaderView);

@@ -22,7 +22,6 @@ import BraftEditor from '../../components/BraftEditor';
 
 @Form.create()
 class Editor extends Component {
-
   handleSubmit = (e) => {
     e.preventDefault();
     const { form } = this.props;
