@@ -85,6 +85,12 @@ export default function request(url, options) {
   return axios(newOptions)
     .then((response) => {
       console.log(`【${newOptions.method} ${newOptions.url}】请求成功，响应数据：%o`, response);
+      const { data } = response;
+      if (data && data.code === -1) {
+        notification.error({
+          message: data.msg,
+        });
+      }
       return { ...response.data };
     })
     .catch((error) => {

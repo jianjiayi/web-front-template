@@ -19,6 +19,7 @@ class WrapFormItem extends Component {
     super(props);
     this.state = {
       count: 0,
+      ImageCaptchaPath: props.ImageCaptchaPath || '/captcha/captcha.jpg',
     };
   }
 
@@ -31,6 +32,13 @@ class WrapFormItem extends Component {
 
   componentWillUnmount() {
     clearInterval(this.interval);
+  }
+
+  onChangeImageCaptcha = () => {
+    const { ImageCaptchaPath = '/captcha/captcha.jpg' } = this.props;
+    this.setState({
+      ImageCaptchaPath: `${ImageCaptchaPath}?t=${new Date().getTime()}`,
+    });
   }
 
   onGetCaptcha = () => {
@@ -75,7 +83,7 @@ class WrapFormItem extends Component {
   };
 
   render() {
-    const { count } = this.state;
+    const { count, ImageCaptchaPath } = this.state;
 
     const {
       form: { getFieldDecorator },
@@ -115,6 +123,28 @@ class WrapFormItem extends Component {
                 onClick={this.onGetCaptcha}
               >
                 {count ? `${count} ${getCaptchaSecondText}` : getCaptchaButtonText}
+              </Button>
+            </Col>
+          </Row>
+        </FormItem>
+      );
+    }
+    if (type === 'ImageCaptcha') {
+      const inputProps = omit(otherProps, ['onGetCaptcha', 'countDown']);
+      return (
+        <FormItem>
+          <Row gutter={8}>
+            <Col span={16}>
+              {getFieldDecorator(name, options)(<Input {...customprops} {...inputProps} />)}
+            </Col>
+            <Col span={8}>
+              <Button
+                disabled={count}
+                className={styles.getCaptcha}
+                size="large"
+                onClick={this.onChangeImageCaptcha}
+              >
+                <img alt="图片验证码" className={styles.imageCaptcha} src={ImageCaptchaPath} />
               </Button>
             </Col>
           </Row>

@@ -12,10 +12,12 @@ const AdvancedProfile = React.lazy(() => import('../pages/Profile/AdvancedProfil
 const Success = React.lazy(() => import('../pages/Result/Success'));
 const Error = React.lazy(() => import('../pages/Result/Error'));
 const BraftEditor = React.lazy(() => import('../pages/Editor'));
+const SettingLayout = React.lazy(() => import('../pages/Setting/SettingLayout'));
+const BaseView = React.lazy(() => import('../pages/Setting/BaseView'));
 const lazy = CusComponent => (<Suspense fallback={<PageLoading />}>{CusComponent}</Suspense>);
 
-const RdeTo = () => (
-  <Redirect to="/dashboard/analysis" />
+const RdeTo = path => (
+  <Redirect to={path || '/dashboard/analysis'} />
 );
 const Root = ({ route }) => (
   <>
@@ -147,20 +149,30 @@ const routes = [
     ],
   },
   {
-    path: '/setting',
-    name: 'setting',
+    path: '/settings',
+    name: 'settings',
     icon: 'setting',
-    component: Root,
+    component: props => lazy(<SettingLayout {...props} />),
     routes: [
       {
-        path: '/setting/info',
-        name: 'info',
-        component: () => (<div>info</div>),
+        path: '/settings/base',
+        name: 'base',
+        component: props => lazy(<BaseView {...props} />),
       },
       {
-        path: '/setting/password',
-        name: 'password',
-        component: () => (<div>password</div>),
+        path: '/settings/security',
+        name: 'security',
+        component: () => (<div>security</div>),
+      },
+      {
+        path: '/settings/binding',
+        name: 'binding',
+        component: () => (<div>binding</div>),
+      },
+      {
+        path: '/settings/notification',
+        name: 'notification',
+        component: () => (<div>notification</div>),
       },
     ],
   },
@@ -168,7 +180,7 @@ const routes = [
     path: '*',
     name: '404',
     hideInMenu: true,
-    component: RdeTo,
+    component: () => RdeTo(),
   },
 ];
 
@@ -195,7 +207,19 @@ export const userRoutes = [
         name: 'forget',
         component: () => (<div>forget</div>),
       },
+      {
+        path: '*',
+        name: '404',
+        hideInMenu: true,
+        component: () => RdeTo('/user/login'),
+      },
     ],
+  },
+  {
+    path: '*',
+    name: '404',
+    hideInMenu: true,
+    component: () => RdeTo(`/user/login?redirect=${encodeURIComponent(window.location.href)}`),
   },
 ];
 export default routes;
