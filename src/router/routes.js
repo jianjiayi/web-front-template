@@ -5,6 +5,9 @@ import { renderRoutes } from 'react-router-config';
 import PageLoading from '../components/PageLoading';
 
 const Login = React.lazy(() => import('../pages/User/Login'));
+const Register = React.lazy(() => import('../pages/User/Register'));
+const StepLayout = React.lazy(() => import('../pages/User/StepLayout'));
+const Step3 = React.lazy(() => import('../pages/User/Step3'));
 const Analysis = React.lazy(() => import('../pages/Dashboard/Analysis'));
 const BasicForm = React.lazy(() => import('../pages/Forms/BasicForm'));
 const TableList = React.lazy(() => import('../pages/List/TableList'));
@@ -200,7 +203,35 @@ export const userRoutes = [
       {
         path: '/user/register',
         name: 'register',
-        component: () => (<div>register</div>),
+        component: props => lazy(<Register {...props} />),
+      },
+      {
+        path: '/user/step-register',
+        name: 'register',
+        component: props => lazy(<StepLayout {...props} />),
+        routes: [
+          {
+            path: '/user/step-register/register',
+            name: '注册',
+            component: props => lazy(<Register {...props} />),
+          },
+          {
+            path: '/user/step-register/incoming',
+            name: '入驻',
+            component: () => (<div>notification</div>),
+          },
+          {
+            path: '/user/step-register/result',
+            name: '完成',
+            component: props => lazy(<Step3 {...props} />),
+          },
+          {
+            path: '*',
+            name: '404',
+            hideInMenu: true,
+            component: () => RdeTo('/user/step-register/register'),
+          },
+        ],
       },
       {
         path: '/user/forget',
