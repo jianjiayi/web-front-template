@@ -9,6 +9,23 @@
 本地开发<br>
 浏览器地址 [http://localhost:3000](http://localhost:3000)。
 
+## yarn start:mock
+本地 mock 测试数据，用户后端服务未提供时使用。<br>
+建议和后端协调好 api接口及返回数据后使用。<br>
+本地 mock 数据参考文件 ./mock/chart.js<br>
+并引入到./mock/index.js 中。<br>
+具体参考[json-server](https://github.com/typicode/json-server)
+
+```bash
+// proxy 代理 注意把单独需要的 path 代理到http://localhost:4000
+// 例如 /mock
+app.use(
+  proxy('/api/mock/**', {
+    target: 'http://localhost:4000',
+    changeOrigin: true,
+  }),
+);
+```
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.<br>
