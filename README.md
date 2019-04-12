@@ -9,8 +9,8 @@
 本地开发<br>
 浏览器地址 [http://localhost:3000](http://localhost:3000)。
 
-## yarn start:mock
-本地 mock 测试数据，用户后端服务未提供时使用。<br>
+### yarn start:mock
+本地 mock 测试数据，用于后端服务未提供时使用。<br>
 建议和后端协调好 api接口及返回数据后使用。<br>
 本地 mock 数据参考文件 ./mock/chart.js<br>
 并引入到./mock/index.js 中。<br>
