@@ -1,7 +1,7 @@
 import request from '../util/request';
 
 export async function fakeChartData() {
-  return request('/api/fake_chart_data');
+  return request('/api/mock/fake_chart_data');
 }
 export async function getUsers() {
   return request('/api/users/user/current');

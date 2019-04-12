@@ -34,10 +34,10 @@ export default {
     },
   },
   effects: dispatch => ({
-    async fetch(payload) {
+    async fetch() {
       const res = await fakeChartData();
       console.log(res, 'res');
-      dispatch.chart.save(payload);
+      dispatch.chart.save(res);
     },
   }),
 };
