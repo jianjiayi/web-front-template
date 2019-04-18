@@ -2045,10 +2045,24 @@ braft-editor@^2.2.9:
     draftjs-utils "^0.9.4"
     immutable "~3.7.4"
 
+braft-extensions@^0.0.18:
+  version "0.0.18"
+  resolved "https://registry.yarnpkg.com/braft-extensions/-/braft-extensions-0.0.18.tgz#8430d601165a732f3b1c089924d63f20852fc874"
+  integrity sha512-4ROjQ3Og2F9tPJ0dqm32YuaQz2uGqLahqCZ2AY6FElfOkFqaNBtJmjyyQraIiZ+6skPTSDLt/j7isnwq9O/RlQ==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    braft-convert "^2.1.10"
+    braft-utils "^3.0.8"
+
 braft-finder@^0.0.18:
   version "0.0.18"
   resolved "https://registry.yarnpkg.com/braft-finder/-/braft-finder-0.0.18.tgz#5f43659b61290081fb2920cc3ce1f62e31e9da57"
   integrity sha512-XtEyVywEfHDzRjAV5HOiqKFva6vEm0Rez+QHgq+EbqXpAqxuHQTci2s3LX2u7G3UicNYpDsVY/UV3nleF2VYyw==
+
+braft-polyfill@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/braft-polyfill/-/braft-polyfill-0.0.2.tgz#2e50ae51098538878331820d90ca4e586e93a5ed"
+  integrity sha512-lieH0yDvYFSCLyV8ebIJ4F/BKXao9KhISeUe0tPIUFv9JlHt8X80BGshOxGIWCGTUsDzj6lGMHTQ93fnTXMXsg==
 
 braft-utils@^3.0.11, braft-utils@^3.0.8:
   version "3.0.11"

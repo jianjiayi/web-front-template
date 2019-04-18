@@ -1,7 +1,10 @@
+import 'braft-polyfill';
 import React, { Component } from 'react';
 import BraftEditor from 'braft-editor';
 import { ContentUtils } from 'braft-utils';
 import 'braft-editor/dist/index.css';
+import 'braft-extensions/dist/table.css';
+import Table from 'braft-extensions/dist/table';
 import {
   Upload,
   Button,
@@ -9,6 +12,30 @@ import {
 } from 'antd';
 
 import { uploadFilesPath } from '../../config';
+
+const options = {
+  defaultColumns: 3, // 默认列数
+  defaultRows: 3, // 默认行数
+  withDropdown: false, // 插入表格前是否弹出下拉菜单
+  exportAttrString: '', // 指定输出HTML时附加到table标签上的属性字符串
+  // includeEditors: ['editor-id-1'], // 指定该模块对哪些BraftEditor生效，不传此属性则对所有BraftEditor有效
+  // excludeEditors: ['editor-id-2']  // 指定该模块对哪些BraftEditor无效
+};
+
+BraftEditor.use(Table(options));
+
+const controls = [
+  'undo', 'redo', 'separator',
+  'font-size', 'line-height', 'letter-spacing', 'separator',
+  'text-color', 'bold', 'italic', 'underline', 'strike-through', 'separator',
+  'superscript', 'subscript', 'remove-styles', 'emoji', 'separator', 'text-indent', 'text-align', 'separator',
+  'headings', 'list-ul', 'list-ol', 'blockquote',
+  // 'code',
+  'separator',
+  'link', 'separator', 'hr', 'separator',
+  'media', 'separator',
+  'clear', 'table',
+];
 
 export default class Editor extends Component {
   state = {
@@ -19,11 +46,21 @@ export default class Editor extends Component {
   componentDidMount() {
     this.isLivinig = true;
     // 3秒后更改编辑器内容
-    this.setEditorContentAsync();
+    // this.setEditorContentAsync();
   }
 
   componentWillUnmount() {
     this.isLivinig = false;
+  }
+
+  static getDerivedStateFromProps(props) {
+    const { value } = props;
+    if ('value' in props && typeof value === 'string') {
+      return {
+        editorState: BraftEditor.createEditorState(value),
+      };
+    }
+    return null;
   }
 
   handleChange = (editorState) => {
@@ -36,11 +73,11 @@ export default class Editor extends Component {
     }
   }
 
-  setEditorContentAsync = () => {
+  setEditorContentAsync = (text) => {
     if (this.isLivinig) {
-      // this.setState({
-      //   editorState: BraftEditor.createEditorState('<p>你好，<b>世界!</b><p>'),
-      // });
+      this.setState({
+        editorState: BraftEditor.createEditorState(text),
+      });
     }
   }
 
@@ -65,6 +102,13 @@ export default class Editor extends Component {
       editorState: ContentUtils.insertMedias(editorState, images),
     });
     return false;
+  }
+
+  editorRef = (ref) => {
+    const { editorRef } = this.props;
+    if (editorRef) {
+      editorRef(ref);
+    }
   }
 
   render() {
@@ -92,11 +136,15 @@ export default class Editor extends Component {
     const { editorState } = this.state;
     return (
       <BraftEditor
+        ref={this.editorRef}
         value={editorState}
         placeholder={placeholder}
+        controls={controls}
         extendControls={cusControls}
         onChange={this.handleChange}
       />
     );
   }
 }
+
+export const contentUtils = ContentUtils;
