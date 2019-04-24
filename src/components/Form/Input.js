@@ -34,6 +34,8 @@ const CInput = (props) => {
     type,
     form,
     label,
+    component,
+    tailFormItemLayout = {},
     ...restProps
   } = props;
 
@@ -42,10 +44,17 @@ const CInput = (props) => {
 
   // get getFieldDecorator props
   const fieldOptions = getFormItemOptions(props);
-
+  let InputComponent;
+  if (component) {
+    InputComponent = component;
+  }
   return (
-    <FormItem label={label}>
-      {getFieldDecorator(name, fieldOptions)(<Input {...customprops} {...otherProps} />)}
+    <FormItem {...tailFormItemLayout} label={label}>
+      {getFieldDecorator(name, fieldOptions)(
+        component
+          ? <InputComponent {...customprops} {...otherProps} />
+          : <Input {...customprops} {...otherProps} />,
+      )}
     </FormItem>
   );
 };

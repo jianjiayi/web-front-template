@@ -1,11 +1,11 @@
 import React from 'react';
 import {
   Form,
-  Select,
+  DatePicker,
 } from 'antd';
+import moment from 'moment';
 
 const FormItem = Form.Item;
-const { Option } = Select;
 
 const getFormItemOptions = ({
   onChange, defaultValue, customprops, rules,
@@ -22,7 +22,7 @@ const getFormItemOptions = ({
   return options;
 };
 
-const CSelect = (props) => {
+const CInput = (props) => {
   const {
     onChange,
     customprops,
@@ -35,24 +35,29 @@ const CSelect = (props) => {
     type,
     form,
     label,
-    options,
+    component,
     ...restProps
   } = props;
+
   const otherProps = restProps.props || {};
   const { getFieldDecorator } = form;
+
+
+  const normalize = value => (value ? moment(value, otherProps.dateFormat || 'YYYY-MM-DD') : null);
+  // const getValueFromEvent = value => {
+  //   return moment(value).format(otherProps.dateFormat)
+  // };
   // get getFieldDecorator props
   const fieldOptions = getFormItemOptions(props);
+  fieldOptions.normalize = normalize;
+  // fieldOptions.getValueFromEvent = getValueFromEvent;
   return (
     <FormItem label={label}>
       {getFieldDecorator(name, fieldOptions)(
-        <Select style={{ width: '100%' }} {...customprops} {...otherProps}>
-          {options.map(({ value, text }) => (
-            <Option key={value} value={value}>{text}</Option>
-          ))}
-        </Select>,
+        <DatePicker {...customprops} {...otherProps} />,
       )}
     </FormItem>
   );
 };
 
-export default CSelect;
+export default CInput;
