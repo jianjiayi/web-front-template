@@ -1,6 +1,8 @@
 const {
   override, fixBabelImports, addDecoratorsLegacy, addLessLoader,
+  addWebpackAlias,
 } = require('customize-cra');
+const path = require('path');
 
 module.exports = override(
   addDecoratorsLegacy(),
@@ -12,6 +14,9 @@ module.exports = override(
     libraryDirectory: 'es',
     // style: 'css',
     style: true,
+  }),
+  addWebpackAlias({
+    '@': path.resolve(__dirname, 'src'),
   }),
   /**
      * addLessLoader 来帮助加载 less 样式
