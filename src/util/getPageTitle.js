@@ -1,7 +1,7 @@
 import pathToRegexp from 'path-to-regexp';
 import isEqual from 'lodash/isEqual';
 /**
- * 记忆化库-memoize-one 
+ * 记忆化库-memoize-one
  * 这个库的每个实例都缓存了一个结果，
  * 下一次不同的结果将覆盖上一次的。
  * 虽然只能缓存一个数据，但是用到合适的地方却能发挥很大的作用。

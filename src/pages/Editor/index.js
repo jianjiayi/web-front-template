@@ -24,14 +24,14 @@ import BraftEditor from '../../components/BraftEditor';
 class Editor extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
-    const { form } = this.props;
-    form.validateFieldsAndScroll((err, values) => {
-      console.log(err, values.edit.toHTML(), 'err, values');
-    });
+    // const { form } = this.props;
+    // form.validateFieldsAndScroll((err, values) => {
+    //   console.log(err, values.edit.toHTML(), 'err, values');
+    // });
   }
 
-  onChange = (edit) => {
-    console.log(edit.toHTML(), 'edit');
+  onChange = () => {
+    // console.log(edit.toHTML(), 'edit');
   }
 
   render() {

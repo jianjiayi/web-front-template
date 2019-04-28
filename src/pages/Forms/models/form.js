@@ -16,7 +16,7 @@ export default {
   effects: dispatch => ({
     // handle state changes with impure functions.
     // use async/await for async actions
-    async submitRegularForm(payload, rootState) {
+    async submitRegularForm(payload) {
       // eslint-disable-next-line no-console
       // eslint-disable-next-line compat/compat
       await new Promise(resolve => setTimeout(resolve, 1000));

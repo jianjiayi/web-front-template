@@ -4,7 +4,7 @@ import logo from './assets/logo.svg';
 
 const { MonthPicker, RangePicker, WeekPicker } = DatePicker;
 function onChange(date, dateString) {
-  console.log(date, dateString);
+  // console.log(date, dateString);
 }
 const App = () => (
   <div className="App">

@@ -95,7 +95,6 @@ class Analysis extends Component {
   render() {
     const { rangePickerValue, salesType, currentTabKey } = this.state;
     const { chart, loading } = this.props;
-    console.log(chart, 'chart');
     const {
       visitData,
       visitData2,

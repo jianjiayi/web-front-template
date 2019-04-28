@@ -8,9 +8,9 @@ export default {
   reducers: {
 
   },
-  effects: dispatch => ({
-    update(paylod, rootState) {
-      console.log(paylod, rootState);
-    },
+  effects: () => ({
+    // update(paylod, rootState) {
+    //   console.log(paylod, rootState);
+    // },
   }),
 };

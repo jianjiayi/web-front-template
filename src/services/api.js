@@ -12,7 +12,7 @@ export async function login(params) {
     data: params,
   });
 }
-export async function logout(params) {
+export async function logout() {
   return request('/auth/logout', {
     method: 'get',
   });
