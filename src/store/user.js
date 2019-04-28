@@ -60,8 +60,7 @@ export default {
       }
     },
     async logout() {
-      const res = await logout();
-      console.log('logout', res);
+      await logout();
       dispatch.user.setIsLogin(false);
     },
   }),

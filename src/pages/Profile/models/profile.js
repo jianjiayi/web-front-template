@@ -6,9 +6,9 @@ export default {
     advancedOperation3: [],
   },
   reducers: {},
-  effects: dispatch => ({
-    load(payload, rootState) {
-      console.log(dispatch, payload, rootState);
-    },
+  effects: () => ({
+    // load(payload, rootState) {
+    //   console.log(dispatch, payload, rootState);
+    // },
   }),
 };

@@ -47,11 +47,11 @@ export default class GlobalHeaderRight extends PureComponent {
             '搜索提示2',
             '搜索提示3',
           ]}
-          onSearch={(value) => {
-            console.log('input', value); // eslint-disable-line
+          onSearch={() => {
+           
           }}
-          onPressEnter={(value) => {
-            console.log('enter', value); // eslint-disable-line
+          onPressEnter={() => {
+            // console.log('enter', value); // eslint-disable-line
           }}
         />
         {currentUser ? (

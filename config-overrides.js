@@ -1,7 +1,21 @@
+/* eslint-disable no-param-reassign */
+
 const {
   override, fixBabelImports, addDecoratorsLegacy, addLessLoader,
   addWebpackAlias,
 } = require('customize-cra');
+
+const dropConsoleConfig = () => (config) => {
+  config.optimization.minimizer.forEach((item) => {
+    if (item.options && item.options.terserOptions && item.options.terserOptions.compress) {
+      item.options.terserOptions.compress.drop_console = true;
+      item.options.terserOptions.compress.drop_info = true;
+      item.options.terserOptions.compress.drop_warn = true;
+    }
+  });
+  return config;
+};
+
 const path = require('path');
 
 module.exports = override(
@@ -15,6 +29,7 @@ module.exports = override(
     // style: 'css',
     style: true,
   }),
+  dropConsoleConfig(),
   addWebpackAlias({
     '@': path.resolve(__dirname, 'src'),
   }),

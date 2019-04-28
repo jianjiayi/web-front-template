@@ -84,7 +84,7 @@ export default function request(url, options) {
   }
   return axios(newOptions)
     .then((response) => {
-      console.log(`【${newOptions.method} ${newOptions.url}】请求成功，响应数据：%o`, response);
+      // console.log(`【${newOptions.method} ${newOptions.url}】请求成功，响应数据：%o`, response);
       const { data } = response;
       if (data && data.code === -1) {
         notification.error({
@@ -95,7 +95,8 @@ export default function request(url, options) {
     })
     .catch((error) => {
       if (!error.response) {
-        return console.log('Error', error.message);
+        return false;
+        // return console.log('Error', error.message);
       }
       // 响应时状态码处理
       const { status } = error.response;
@@ -119,7 +120,7 @@ export default function request(url, options) {
       }
 
       // 开发时使用，上线时删除
-      console.log(`【${newOptions.method} ${newOptions.url}】请求失败，响应数据：%o`, error.response);
+      // console.log(`【${newOptions.method} ${newOptions.url}】请求失败，响应数据：%o`, error.response);
       return { error: true, code: status, message: errortext };
     });
 }
