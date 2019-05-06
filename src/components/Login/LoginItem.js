@@ -6,6 +6,7 @@ import omit from 'omit.js';
 import styles from './index.module.less';
 import ItemMap from './map';
 import LoginContext from './loginContext';
+import PassWord from '../Form/PassWord';
 
 const FormItem = Form.Item;
 
@@ -134,8 +135,11 @@ class WrapFormItem extends Component {
       return (
         <FormItem>
           <Row gutter={8}>
-            <Col span={16}>
-              {getFieldDecorator(name, options)(<Input {...customprops} {...inputProps} />)}
+            <Col span={16}>11
+              {getFieldDecorator(name, options)(<PassWord onBlur={()=>{console.log('onblur')
+              this.props.form.setFieldsValue({
+                "validateCode":'xxxx'
+              });}} {...customprops} {...inputProps} />)}
             </Col>
             <Col span={8}>
               <Button
