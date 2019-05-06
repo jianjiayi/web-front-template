@@ -22,6 +22,9 @@ const Inputi = Input;
 const PassWord = new Proxy(Inputi, {
   construct: (Target, args) => {
     const target1 = new Target(...args);
+    if (target1.props.type !== 'password') {
+      return target1;
+    }
     target1.renderInput = (prefixCls) => {
       function fixControlledValue() {
 

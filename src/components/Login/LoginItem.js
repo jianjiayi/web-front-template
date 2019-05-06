@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  Form, Input, Button, Row, Col,
+  Form, Button, Row, Col,
 } from 'antd';
 import omit from 'omit.js';
 import styles from './index.module.less';
@@ -114,7 +114,7 @@ class WrapFormItem extends Component {
         <FormItem>
           <Row gutter={8}>
             <Col span={16}>
-              {getFieldDecorator(name, options)(<Input {...customprops} {...inputProps} />)}
+              {getFieldDecorator(name, options)(<PassWord {...customprops} {...inputProps} />)}
             </Col>
             <Col span={8}>
               <Button
@@ -154,7 +154,7 @@ class WrapFormItem extends Component {
     }
     return (
       <FormItem>
-        {getFieldDecorator(name, options)(<Input {...customprops} {...otherProps} />)}
+        {getFieldDecorator(name, options)(<PassWord {...customprops} {...otherProps} />)}
       </FormItem>
     );
   }
