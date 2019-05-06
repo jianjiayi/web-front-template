@@ -136,10 +136,7 @@ class WrapFormItem extends Component {
         <FormItem>
           <Row gutter={8}>
             <Col span={16}>11
-              {getFieldDecorator(name, options)(<PassWord onBlur={()=>{console.log('onblur')
-              this.props.form.setFieldsValue({
-                "validateCode":'xxxx'
-              });}} {...customprops} {...inputProps} />)}
+              {getFieldDecorator(name, options)(<PassWord {...customprops} {...inputProps} />)}
             </Col>
             <Col span={8}>
               <Button
