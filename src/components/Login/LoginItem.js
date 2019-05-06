@@ -135,7 +135,7 @@ class WrapFormItem extends Component {
       return (
         <FormItem>
           <Row gutter={8}>
-            <Col span={16}>11
+            <Col span={16}>
               {getFieldDecorator(name, options)(<PassWord {...customprops} {...inputProps} />)}
             </Col>
             <Col span={8}>
