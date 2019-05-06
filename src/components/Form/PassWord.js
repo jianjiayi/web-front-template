@@ -24,7 +24,7 @@ const PassWord = new Proxy(Inputi, {
     const target1 = new Target(...args);
     target1.renderInput = (prefixCls) => {
       function fixControlledValue() {
-       
+
       }
       const _this$props5 = target1.props;
 
