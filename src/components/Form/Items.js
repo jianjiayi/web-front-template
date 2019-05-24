@@ -1,6 +1,6 @@
 /* eslint-disable react/no-multi-comp */
 
-import React, { PureComponent } from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import {
   Row,
   Col,
@@ -19,6 +19,7 @@ import Select from './Select';
 import Radio from './Radio';
 import TextArea from './TextArea';
 import DatePicker from './DatePicker';
+import UploadField from './UploadField';
 
 const inputType = {
   select: Select,
@@ -27,6 +28,7 @@ const inputType = {
   radio: Radio,
   textArea: TextArea,
   datePicker: DatePicker,
+  upload: UploadField,
 };
 
 /**
@@ -185,6 +187,7 @@ class FormItems extends PureComponent {
   renderRow = (item, i) => {
     const {
       rowProps,
+      isRow = true,
     } = this.props;
     if (isArray(item)) {
       return (
@@ -193,10 +196,12 @@ class FormItems extends PureComponent {
         </Row>
       );
     }
+    const Wap = isRow ? Row : Fragment;
+    const wapProps = isRow ? rowProps : {};
     return (
-      <Row {...rowProps} key={item.name}>
+      <Wap {...wapProps} key={item.name}>
         {this.renderInput(item)}
-      </Row>
+      </Wap>
     );
   }
 
@@ -209,7 +214,7 @@ class FormItems extends PureComponent {
     const {
       name, label, type, ...restProps
     } = inputProps;
-    const TnputItem = inputType[type];
+    const TnputItem = inputType[type] || inputType.input;
     return (
       <Col {...colProps} key={name}>
         <TnputItem
