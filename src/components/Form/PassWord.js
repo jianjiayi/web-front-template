@@ -1,3 +1,4 @@
+/* eslint-disable compat/compat */
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-func-assign */
 /* eslint-disable max-len */
