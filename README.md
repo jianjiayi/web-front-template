@@ -1,119 +1,119 @@
-后台管理系统 starter kit，基于 creacte-react-app 2.x webpack 4。
+# Ant Design Pro
 
-## 可用的脚本
+This project is initialized with [Ant Design Pro](https://pro.ant.design). Follow is the quick guide for how to use.
 
-在项目目录下运行:
+## Environment Prepare
 
-### `npm start`
-
-本地开发<br>
-浏览器地址 [http://localhost:3000](http://localhost:3000)。
-
-### yarn start:mock
-本地 mock 测试数据，用于后端服务未提供时使用。<br>
-建议和后端协调好 api接口及返回数据后使用。<br>
-本地 mock 数据参考文件 ./mock/chart.js<br>
-并引入到./mock/index.js 中。<br>
-具体参考[json-server](https://github.com/typicode/json-server)
+Install `node_modules`:
 
 ```bash
-// proxy 代理 注意把单独需要的 path 代理到http://localhost:4000
-// 例如 /mock
-app.use(
-  proxy('/api/mock/**', {
-    target: 'http://localhost:4000',
-    changeOrigin: true,
-  }),
-);
+npm install
 ```
-### `npm test`
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+or
 
-### `npm run build`
-
-生产环境打包<br>
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `run analyze 分析JavaScript包`
-
-依赖 source-map-explorer
-
-### less 使用
-
-scope（私有）引入，命名需加入 .module<br>
 ```bash
-import styles from './index.module.less';
-className={styles.logo}
+yarn
 ```
-公共引入 此模式可能会与其他 css 冲突，慎用！！！
+
+## Provided Scripts
+
+Ant Design Pro provides some useful script to help you quick start and build with web project, code style check and test.
+
+Scripts provided in `package.json`. It's safe to modify or add additional script:
+
+### Start project
+
 ```bash
-import from './index.less';
-className="logo"
+npm start
 ```
 
-## JavaScript 风格指南
+### Build project
 
-eslint校验规则 .eslintrc.js<br>
-请在自己的 IDE 上配置eslint插件，并配置tab 为两个空格，并按规范书写代码。<br>
-生产环境 build 不允许出现警告。<br>
-采用 Airbnb JavaScript 风格指南<br>
-详细规则 [Airbnb JavaScript 风格指南](https://github.com/lin-123/javascript)
-
-## 建议使用 yarn
-
-[yarn](https://yarnpkg.com/zh-Hans/docs/install#mac-stable)
-
-## 版本锁定
-
-```
-"react": "^16.8.6",
-"react-dom": "^16.8.6",
-"react-redux": "^6.0.1",
-"@rematch/core": "^1.1.0",
-"react-router-dom": "^5.0.0",
-"antd": "^3.15.2",
-"less": "^3.9.0",
+```bash
+npm run build
 ```
 
-## proxy 代理
+### Check code style
 
-proxy代理配置见 config-overrides.js。
-禁止在 js 中写死 url 地址。
+```bash
+npm run lint
+```
 
-## Learn More
+You can also use script to auto fix some lint error:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm run lint:fix
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Test code
 
-### Code Splitting
+```bash
+npm test
+```
+###
+```bash
+/**
+   * history 默认是 browser
+   * hashHistory 和 browserHistory 配置开关
+   * 使用hashHistory,浏览器的url是这样的：/#/user/liuna?_k=adseis
+   * 使用browserHistory,浏览器的url是这样的：/user/liuna
+   * 建议使用browser
+   * 使用 nginx
+   * server {
+        listen 80;
+        # gzip config
+        ...
+        root /usr/share/nginx/html;
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+        location / {
+            # 用于配合 browserHistory使用
+            try_files $uri $uri/ /index.html;
 
-### Analyzing the Bundle Size
+            # 如果有资源，建议使用 https + http2，配合按需加载可以获得更好的体验
+            # rewrite ^/(.*)$ https://preview.xxx.com/$1 permanent;
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+        }
+        location /api {
+            proxy_pass https://preview.xxx.com;
+            proxy_set_header   X-Forwarded-Proto $scheme;
+            proxy_set_header   Host              $http_host;
+            proxy_set_header   X-Real-IP         $remote_addr;
+        }
+    }
+    server {
+      # 如果有资源，建议使用 https + http2，配合按需加载可以获得更好的体验
+      listen 443 ssl http2 default_server;
 
-### Making a Progressive Web App
+      # 证书的公私钥
+      ssl_certificate /path/to/public.crt;
+      ssl_certificate_key /path/to/private.key;
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+      location / {
+            # 用于配合 browserHistory使用
+            try_files $uri $uri/ /index.html;
 
-### Advanced Configuration
+      }
+      location /api {
+          proxy_pass https://preview.xxx.com;
+          proxy_set_header   X-Forwarded-Proto $scheme;
+          proxy_set_header   Host              $http_host;
+          proxy_set_header   X-Real-IP         $remote_addr;
+      }
+    }
+  * 使用 spring boot
+  * 然后将编译之后的文件复制到 spring boot 项目的 /src/main/resources/static
+    @RequestMapping("/api/**")
+    public ApiResult api(HttpServletRequest request, HttpServletResponse response){
+        return apiProxy.proxy(request, reponse);
+    }
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+    @RequestMapping(value="/**", method=HTTPMethod.GET)
+    public String index(){
+        return "index"
+    }
+   */
+```
+## More
 
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+You can view full document on our [official website](https://pro.ant.design). And welcome any feedback in our [github](https://github.com/ant-design/ant-design-pro).
