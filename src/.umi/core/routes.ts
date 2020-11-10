@@ -1,6 +1,6 @@
 // @ts-nocheck
 import React from 'react';
-import { ApplyPluginsType, dynamic } from '/Users/soho/HD/E/project/people/project/data-center/data-center-front/node_modules/@umijs/runtime';
+import { ApplyPluginsType, dynamic } from '/Users/soho/HD/E/project/people/project/web-front-template/node_modules/@umijs/runtime';
 import * as umiExports from './umiExports';
 import { plugin } from './plugin';
 import LoadingComponent from '@/components/PageLoading/index';
@@ -9,7 +9,7 @@ export function getRoutes() {
   const routes = [
   {
     "path": "/",
-    "component": dynamic({ loader: () => import(/* webpackChunkName: '.umi__plugin-layout__Layout' */'/Users/soho/HD/E/project/people/project/data-center/data-center-front/src/.umi/plugin-layout/Layout.tsx'), loading: LoadingComponent}),
+    "component": dynamic({ loader: () => import(/* webpackChunkName: '.umi__plugin-layout__Layout' */'/Users/soho/HD/E/project/people/project/web-front-template/src/.umi/plugin-layout/Layout.tsx'), loading: LoadingComponent}),
     "routes": [
       {
         "path": "/user",
@@ -18,7 +18,7 @@ export function getRoutes() {
           {
             "name": "login",
             "path": "/user/login",
-            "component": dynamic({ loader: () => import(/* webpackChunkName: 'p__user__login' */'/Users/soho/HD/E/project/people/project/data-center/data-center-front/src/pages/user/login'), loading: LoadingComponent}),
+            "component": dynamic({ loader: () => import(/* webpackChunkName: 'p__user__login' */'/Users/soho/HD/E/project/people/project/web-front-template/src/pages/user/login'), loading: LoadingComponent}),
             "exact": true
           }
         ]
@@ -27,14 +27,14 @@ export function getRoutes() {
         "path": "/home",
         "name": "welcome",
         "icon": "smile",
-        "component": dynamic({ loader: () => import(/* webpackChunkName: 'p__Welcome' */'/Users/soho/HD/E/project/people/project/data-center/data-center-front/src/pages/Welcome'), loading: LoadingComponent}),
+        "component": dynamic({ loader: () => import(/* webpackChunkName: 'p__Welcome' */'/Users/soho/HD/E/project/people/project/web-front-template/src/pages/Welcome'), loading: LoadingComponent}),
         "exact": true
       },
       {
         "path": "/demo",
         "name": "formDemo",
         "icon": "smile",
-        "component": dynamic({ loader: () => import(/* webpackChunkName: 'p__Demo__Welcome' */'/Users/soho/HD/E/project/people/project/data-center/data-center-front/src/pages/Demo/Welcome'), loading: LoadingComponent}),
+        "component": dynamic({ loader: () => import(/* webpackChunkName: 'p__Demo__Welcome' */'/Users/soho/HD/E/project/people/project/web-front-template/src/pages/Demo/Welcome'), loading: LoadingComponent}),
         "exact": true
       },
       {
@@ -42,13 +42,13 @@ export function getRoutes() {
         "name": "admin",
         "icon": "crown",
         "access": "canAdmin",
-        "component": dynamic({ loader: () => import(/* webpackChunkName: 'p__Admin' */'/Users/soho/HD/E/project/people/project/data-center/data-center-front/src/pages/Admin'), loading: LoadingComponent}),
+        "component": dynamic({ loader: () => import(/* webpackChunkName: 'p__Admin' */'/Users/soho/HD/E/project/people/project/web-front-template/src/pages/Admin'), loading: LoadingComponent}),
         "routes": [
           {
             "path": "/admin/sub-page",
             "name": "sub-page",
             "icon": "smile",
-            "component": dynamic({ loader: () => import(/* webpackChunkName: 'p__Welcome' */'/Users/soho/HD/E/project/people/project/data-center/data-center-front/src/pages/Welcome'), loading: LoadingComponent}),
+            "component": dynamic({ loader: () => import(/* webpackChunkName: 'p__Welcome' */'/Users/soho/HD/E/project/people/project/web-front-template/src/pages/Welcome'), loading: LoadingComponent}),
             "exact": true
           }
         ]
@@ -62,21 +62,21 @@ export function getRoutes() {
             "path": "/list/hooks",
             "name": "sub-page",
             "icon": "smile",
-            "component": dynamic({ loader: () => import(/* webpackChunkName: 'p__Hooks__routes' */'/Users/soho/HD/E/project/people/project/data-center/data-center-front/src/pages/Hooks/routes'), loading: LoadingComponent}),
+            "component": dynamic({ loader: () => import(/* webpackChunkName: 'p__Hooks__routes' */'/Users/soho/HD/E/project/people/project/web-front-template/src/pages/Hooks/routes'), loading: LoadingComponent}),
             "exact": true
           },
           {
             "path": "/list/first-page",
             "name": "sub-page",
             "icon": "smile",
-            "component": dynamic({ loader: () => import(/* webpackChunkName: 'p__Welcome' */'/Users/soho/HD/E/project/people/project/data-center/data-center-front/src/pages/Welcome'), loading: LoadingComponent}),
+            "component": dynamic({ loader: () => import(/* webpackChunkName: 'p__Welcome' */'/Users/soho/HD/E/project/people/project/web-front-template/src/pages/Welcome'), loading: LoadingComponent}),
             "exact": true
           },
           {
             "path": "/list/sub-page",
             "name": "sub-page",
             "icon": "smile",
-            "component": dynamic({ loader: () => import(/* webpackChunkName: 'p__ListTableList' */'/Users/soho/HD/E/project/people/project/data-center/data-center-front/src/pages/ListTableList'), loading: LoadingComponent}),
+            "component": dynamic({ loader: () => import(/* webpackChunkName: 'p__ListTableList' */'/Users/soho/HD/E/project/people/project/web-front-template/src/pages/ListTableList'), loading: LoadingComponent}),
             "exact": true
           }
         ]
@@ -87,7 +87,7 @@ export function getRoutes() {
         "exact": true
       },
       {
-        "component": dynamic({ loader: () => import(/* webpackChunkName: 'p__404' */'/Users/soho/HD/E/project/people/project/data-center/data-center-front/src/pages/404'), loading: LoadingComponent}),
+        "component": dynamic({ loader: () => import(/* webpackChunkName: 'p__404' */'/Users/soho/HD/E/project/people/project/web-front-template/src/pages/404'), loading: LoadingComponent}),
         "exact": true
       }
     ]

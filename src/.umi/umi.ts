@@ -5,8 +5,8 @@ import '../global.jsx';
 import { plugin } from './core/plugin';
 import './core/pluginRegister';
 import { createHistory } from './core/history';
-import { ApplyPluginsType } from '/Users/soho/HD/E/project/people/project/data-center/data-center-front/node_modules/@umijs/runtime';
-import { renderClient } from '/Users/soho/HD/E/project/people/project/data-center/data-center-front/node_modules/@umijs/renderer-react/dist/index.js';
+import { ApplyPluginsType } from '/Users/soho/HD/E/project/people/project/web-front-template/node_modules/@umijs/runtime';
+import { renderClient } from '/Users/soho/HD/E/project/people/project/web-front-template/node_modules/@umijs/renderer-react/dist/index.js';
 import { getRoutes } from './core/routes';
 
 

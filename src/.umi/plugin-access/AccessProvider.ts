@@ -4,7 +4,7 @@ import { IRoute } from 'umi';
 import { useModel } from '../core/umiExports';
 import accessFactory from '../../access';
 import AccessContext, { AccessInstance } from './context';
-import { traverseModifyRoutes } from '/Users/soho/HD/E/project/people/project/data-center/data-center-front/node_modules/@umijs/plugin-access/lib/utils/runtimeUtil';
+import { traverseModifyRoutes } from '/Users/soho/HD/E/project/people/project/web-front-template/node_modules/@umijs/plugin-access/lib/utils/runtimeUtil';
 
 type Routes = IRoute[];
 

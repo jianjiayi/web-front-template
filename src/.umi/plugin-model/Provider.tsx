@@ -1,14 +1,14 @@
 // @ts-nocheck
 import React from 'react';
-import initialState from '/Users/soho/HD/E/project/people/project/data-center/data-center-front/src/.umi/plugin-initial-state/models/initialState';
-import model0 from "/Users/soho/HD/E/project/people/project/data-center/data-center-front/src/models/loginUseModel";
-import model1 from "/Users/soho/HD/E/project/people/project/data-center/data-center-front/src/pages/user/login/models/index";
+import initialState from '/Users/soho/HD/E/project/people/project/web-front-template/src/.umi/plugin-initial-state/models/initialState';
+import model0 from "/Users/soho/HD/E/project/people/project/web-front-template/src/models/loginUseModel";
+import model1 from "/Users/soho/HD/E/project/people/project/web-front-template/src/pages/user/login/models/index";
 // @ts-ignore
-import Dispatcher from '/Users/soho/HD/E/project/people/project/data-center/data-center-front/node_modules/@umijs/plugin-model/lib/helpers/dispatcher';
+import Dispatcher from '/Users/soho/HD/E/project/people/project/web-front-template/node_modules/@umijs/plugin-model/lib/helpers/dispatcher';
 // @ts-ignore
-import Executor from '/Users/soho/HD/E/project/people/project/data-center/data-center-front/node_modules/@umijs/plugin-model/lib/helpers/executor';
+import Executor from '/Users/soho/HD/E/project/people/project/web-front-template/node_modules/@umijs/plugin-model/lib/helpers/executor';
 // @ts-ignore
-import { UmiContext } from '/Users/soho/HD/E/project/people/project/data-center/data-center-front/node_modules/@umijs/plugin-model/lib/helpers/constant';
+import { UmiContext } from '/Users/soho/HD/E/project/people/project/web-front-template/node_modules/@umijs/plugin-model/lib/helpers/constant';
 
 export const models = { '@@initialState': initialState, 'loginUseModel': model0, 'user.login.index': model1 };
 

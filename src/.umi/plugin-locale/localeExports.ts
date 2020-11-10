@@ -3,11 +3,11 @@ import {
   createIntl,
   IntlShape,
   MessageDescriptor,
-} from '/Users/soho/HD/E/project/people/project/data-center/data-center-front/node_modules/react-intl';
+} from '/Users/soho/HD/E/project/people/project/web-front-template/node_modules/react-intl';
 import { ApplyPluginsType } from 'umi';
 import { event, LANG_CHANGE_EVENT } from './locale';
 // @ts-ignore
-import warning from '/Users/soho/HD/E/project/people/project/data-center/data-center-front/node_modules/warning/warning.js';
+import warning from '/Users/soho/HD/E/project/people/project/web-front-template/node_modules/warning/warning.js';
 
 import { plugin } from '../core/plugin';
 
@@ -34,7 +34,7 @@ export {
   defineMessages,
   injectIntl,
   useIntl,
-} from '/Users/soho/HD/E/project/people/project/data-center/data-center-front/node_modules/react-intl';
+} from '/Users/soho/HD/E/project/people/project/web-front-template/node_modules/react-intl';
 
 let g_intl: IntlShape;
 
@@ -43,7 +43,7 @@ const useLocalStorage = true;
 export const localeInfo: {[key: string]: any} = {
   'en-US': {
     messages: {
-      ...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/soho/HD/E/project/people/project/data-center/data-center-front/src/locales/en-US.js')),
+      ...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/soho/HD/E/project/people/project/web-front-template/src/locales/en-US.js')),
     },
     locale: 'en-US',
     antd: {
@@ -53,7 +53,7 @@ export const localeInfo: {[key: string]: any} = {
   },
   'id-ID': {
     messages: {
-      ...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/soho/HD/E/project/people/project/data-center/data-center-front/src/locales/id-ID.js')),
+      ...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/soho/HD/E/project/people/project/web-front-template/src/locales/id-ID.js')),
     },
     locale: 'id-ID',
     antd: {
@@ -63,7 +63,7 @@ export const localeInfo: {[key: string]: any} = {
   },
   'pt-BR': {
     messages: {
-      ...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/soho/HD/E/project/people/project/data-center/data-center-front/src/locales/pt-BR.js')),
+      ...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/soho/HD/E/project/people/project/web-front-template/src/locales/pt-BR.js')),
     },
     locale: 'pt-BR',
     antd: {
@@ -73,7 +73,7 @@ export const localeInfo: {[key: string]: any} = {
   },
   'zh-CN': {
     messages: {
-      ...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/soho/HD/E/project/people/project/data-center/data-center-front/src/locales/zh-CN.js')),
+      ...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/soho/HD/E/project/people/project/web-front-template/src/locales/zh-CN.js')),
     },
     locale: 'zh-CN',
     antd: {
@@ -83,7 +83,7 @@ export const localeInfo: {[key: string]: any} = {
   },
   'zh-TW': {
     messages: {
-      ...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/soho/HD/E/project/people/project/data-center/data-center-front/src/locales/zh-TW.js')),
+      ...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/soho/HD/E/project/people/project/web-front-template/src/locales/zh-TW.js')),
     },
     locale: 'zh-TW',
     antd: {
